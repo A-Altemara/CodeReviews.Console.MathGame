@@ -13,6 +13,7 @@ class Program
         char entry;
         do
         {
+            Console.Clear();
             Console.WriteLine("What Game would you like to play from the selection below:");
             Console.WriteLine("V - View Previous Games");
             Console.WriteLine("A - Addition");
@@ -26,12 +27,21 @@ class Program
             switch (entry)
             {
                 case 'v':
-                    Console.WriteLine("/nView previous games chosen");
+                    Console.WriteLine("\nView previous games chosen");
+                    
+                    for (int i = 0; i < ScoreSheet.Count; i++)
+                    {
+                        Console.WriteLine($"Final Score game {i +1}: {ScoreSheet[i]}");
+                    }
+
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadLine();
                     break;
                 case 'a':
                 case 's':
                 case 'm':
                 case 'd':
+                    Console.Clear();
                     PlayMathGame(rounds, entry);
                     break;
                 case 'q':
